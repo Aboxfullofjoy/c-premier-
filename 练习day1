@@ -1,3 +1,4 @@
+//2.6
 #include <iostream>
 using namespace std;
 
@@ -14,4 +15,28 @@ int main() {
     cout<< lightyears<<" lightyears = "<< astro <<" astronomical units."<<endl;
     return 0;
 }
+
+//2.7
+#include <chrono>
+#include <iostream>
+using namespace std;
+
+void printit(int aa,int bb) {
+    cout<<"Time:"<<aa<<":"<<bb<<endl;
+}
+
+int main() {
+    int hours,minutes;
+    cin>>hours;
+    cin>>minutes;
+    cout<<"Enter the number of hours:"<<hours<<endl;
+    cout<<"Enter the number of hours:"<<minutes<<endl;
+    printit(hours,minutes);
+    return 0;
+}
+
+//文件iostream提供了控制符endl，用于指示cout重起一行。同样，它还提供了控制符dec、hex和oct，分别用于指示cout以十进制、十六进制和八进制格式显示整数。
+
+//d.dddE+n指的是将小数点向右移n位，而d.dddE～n指的是将小数点向左移n位。之所以称为“浮
+//点”，就是因为小数点可移动
 
