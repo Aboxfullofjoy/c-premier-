@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+double transfer(double aa) {
+    double aaa=63240*aa;
+    return aaa;
+}
+
+int main() {
+    double lightyears;
+    cin >> lightyears;
+    cout << "Enter the number of light years:" <<lightyears<< endl;
+    double astro= transfer(lightyears);
+    cout<< lightyears<<" lightyears = "<< astro <<" astronomical units."<<endl;
+    return 0;
+}
+
