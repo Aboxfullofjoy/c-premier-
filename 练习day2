@@ -1,0 +1,33 @@
+//3.4
+#include <chrono>
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    int hours,minutes,days,lastseconds;//符号常量(是什么）表示？
+
+    // 使用const定义符号常量
+    const int SECONDS_PER_MINUTE = 60;
+    const int MINUTES_PER_HOUR = 60;
+    const int HOURS_PER_DAY = 24;
+
+    long seconds;//存储为long类型？
+    cin>>seconds;//如何以整数方式输入变量？
+
+
+    days=seconds/(HOURS_PER_DAY*MINUTES_PER_HOUR*SECONDS_PER_MINUTE);
+    seconds%=(HOURS_PER_DAY*MINUTES_PER_HOUR*SECONDS_PER_MINUTE);
+
+    hours=seconds/MINUTES_PER_HOUR/SECONDS_PER_MINUTE;
+    seconds=seconds%(MINUTES_PER_HOUR*SECONDS_PER_MINUTE);
+
+    minutes=seconds/SECONDS_PER_MINUTE;
+    lastseconds=seconds%SECONDS_PER_MINUTE;
+
+
+    cout<<"Enter the number of seconds:"<<seconds<<endl;
+    cout<<days<<" "<<hours<<" "<<minutes<< " "<<lastseconds<<endl;
+    return 0;
+}
+
