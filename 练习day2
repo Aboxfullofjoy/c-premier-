@@ -66,3 +66,169 @@ int main() {
 //string对象和字符数组之间的主要区别是，可以将string对象声明为简单变量，而不是数组：
 //不能将一个数组赋给另一个数组，但可以将一个string对象赋给另一个string对象：
 //转义序列\"表示双引号，而不是字符串结尾。
+
+
+//4.5
+#include <chrono>
+#include <iostream>
+#include<math.h>
+#include <iomanip> // 用于设置浮点数的输出格式
+using namespace std;
+
+struct CandyBar {
+    string  brand;//不是char!
+    double  weight;
+    int  calorie;
+};
+
+
+int main() {
+    CandyBar snack = {"Mocha Munch",2.3,350 };//要加=
+    cout<<snack.brand<<snack.weight<<snack.calorie<<endl;
+    return 0;
+}
+
+//4.6
+#include <chrono>
+#include <iostream>
+#include<math.h>
+#include <iomanip> // 用于设置浮点数的输出格式
+using namespace std;
+
+struct CandyBar {
+    string  brand;//不是char!
+    double  weight;
+    int  calorie;
+};
+
+
+int main() {
+    //CandyBar snack = {"Mocha Munch",2.3,350 };//要加=
+    //cout<<snack.brand<<snack.weight<<snack.calorie<<endl;
+    CandyBar snack[3] = {
+        {"Mocha Munch", 2.3, 350},
+        {"Strawberry Shortcake", 1.5, 200},
+        {"Chocolate Fudge", 3.0, 500}
+    };
+
+    // 显示每个CandyBar的内容
+    for (int i = 0; i < 3; ++i) {
+        cout << "Brand: " << snack[i].brand << endl;
+        cout << "Weight: " << snack[i].weight << " oz" << endl;
+        cout << "Calories: " << snack[i].calorie << endl;
+        cout << std::endl; // 添加空行以便清晰显示每个CandyBar的内容
+    }
+    return 0;
+}
+
+//4.9
+#include <chrono>
+#include <iostream>
+#include<math.h>
+#include <iomanip> // 用于设置浮点数的输出格式
+using namespace std;
+
+struct CandyBar {
+    string  brand;//不是char!
+    double  weight;
+    int  calorie;
+};
+
+// 自定义函数来显示CandyBar的内容
+void displayCandyBar(const CandyBar& candyBar) {
+    cout << "Brand: " << candyBar.brand
+              << ", Weight: " << candyBar.weight
+              << ", Calories: " << candyBar.calorie
+              << endl;
+}
+
+int main() {
+    const int numBars=3;
+    CandyBar *candyBars=new CandyBar[numBars];
+
+    // 初始化CandyBar数组
+    candyBars[0] = {"Mocha Munch", 2.3, 350};
+    candyBars[1] = {"Strawberry Shortcake", 1.5, 200};
+    candyBars[2] = {"Chocolate Fudge", 3.0, 500};
+
+    // 显示每个CandyBar的内容
+    for (int i = 0; i < numBars; ++i) {
+        displayCandyBar(candyBars[i]);
+    }
+
+    // 使用delete[]释放动态分配的内存
+    delete[] candyBars;
+
+    return 0;
+}
+
+//4.7
+#include <chrono>
+#include <iostream>
+#include<math.h>
+#include <iomanip> // 用于设置浮点数的输出格式
+using namespace std;
+
+struct Pizza {
+    string  brand;
+    double dia ;
+    double weight;
+};
+
+
+
+int main() {
+    Pizza pizza;
+    cout<<"Please import brand:"<<endl;
+    getline(cin,pizza.brand);
+    cout<<"Please import dia:"<<endl;
+    cin>>pizza.dia;
+    cout<<"Please import weight:"<<endl;
+    cin>>pizza.weight;
+    // 显示披萨饼的信息
+    std::cout << "披萨饼信息如下：" << std::endl;
+    std::cout << "公司名称: " << pizza.brand << std::endl;
+    std::cout << "直径: " << pizza.dia << " 英寸" << std::endl;
+    std::cout << "重量: " << pizza.weight << " 磅" << std::endl;
+
+    
+    return 0;
+}
+
+//4.8
+#include <chrono>
+#include <iostream>
+#include<math.h>
+#include <iomanip> // 用于设置浮点数的输出格式
+using namespace std;
+
+struct Pizza {
+    string  brand;
+    double dia ;
+    double weight;
+};
+
+
+
+int main() {
+    Pizza* pizza = new Pizza;  //之后.改为->
+    cout<<"Please import dia:"<<endl;
+    cin>>pizza->dia;
+    // 清除输入缓冲区中的换行符 ，不清除会直接输出
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+
+    cout<<"Please import brand:"<<endl;
+    getline(cin,pizza->brand);
+
+    cout<<"Please import weight:"<<endl;
+    cin>>pizza->weight;
+    // 显示披萨饼的信息
+    std::cout << "披萨饼信息如下：" << std::endl;
+    std::cout << "公司名称: " << pizza->brand << std::endl;
+    std::cout << "直径: " << pizza->dia << " 英寸" << std::endl;
+    std::cout << "重量: " << pizza->weight << " 磅" << std::endl;
+
+
+    return 0;
+}
