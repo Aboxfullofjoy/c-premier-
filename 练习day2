@@ -31,3 +31,38 @@ int main() {
     return 0;
 }
 
+
+//3.7
+#include <chrono>
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+
+int main() {
+    double ecost,acost;
+    const double eatrans1=0.6214;// 1英里 = 0.621371公里
+    const double eatrans2=3.875;// 1加仑 = 3.875升
+    cin>>ecost;
+    cout<<"Europe cost"<<ecost<<endl;
+
+    acost=(100/ecost)*eatrans1*eatrans2;
+    cout<<" acost = "<<acost<<"mpg\n"<<"ecost = "<<ecost<<"l/100km"<<endl;
+    return 0;
+}
+
+//sizeof运算符返回类型或数据对象的长度（单位为字节）
+//只有在定义数组时才能使用初始化，此后就不能使用了，也不能将一个数组赋给另一个数组：
+//但C++11中的列表初始化新增了一些功能。首先，初始化数组时，可省略等号（=）：其次，可不在大括号内包含任何东西，这将把所有元素都设置为0,
+
+//空字符被写作\0，其ASCII码为0，用来标记字符串的结尾,字符串以'\0'结尾
+//用引号""括起的字符串隐式地包括结尾的空字符，因此不用显式地包括它
+//在确定存储字符串所需的最短数组时，别忘了将结尾的空字符计算在内。
+
+//sizeof运算符指出整个数组的长度：15字节，但strlen( )函数返回的是存储在数组中的字符串的长度，而不是数组本身的长度。另外，strlen( )只计算可见的字符，而不把空字符计算在内。因此，对于Basicman，返回的值为8，而不是9。如果cosmic是字符串，则要存储该字符串，数组的长度不能短于strlen（cosmic）+1。
+
+//cin后用get()把换行符拿走
+
+//string对象和字符数组之间的主要区别是，可以将string对象声明为简单变量，而不是数组：
+//不能将一个数组赋给另一个数组，但可以将一个string对象赋给另一个string对象：
+//转义序列\"表示双引号，而不是字符串结尾。
